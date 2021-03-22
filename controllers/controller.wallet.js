@@ -39,3 +39,13 @@ exports.getWalletsById = function (req, res) {
     });
   });
 };
+
+exports.checkWallet = function (walletId) {
+  try {
+    const filter = { _id: ObjectId(walletId) };
+
+    return Wallet.find(filter, (errors, wallet) => {});
+  } catch (error) {
+    return Promise.reject();
+  }
+};
